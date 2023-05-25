@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         let serverURL = URL(string: "http://127.0.0.1:8080/sse")!
-        eventSource = EventSource(url: serverURL, headers: ["Authorization": "Bearer basic-auth-token"])
+        eventSource = EventSource(urlRequest: URLRequest(url: serverURL), headers: ["Authorization": "Bearer basic-auth-token"])
 
         eventSource?.onOpen { [weak self] in
             self?.status.backgroundColor = UIColor(red: 166/255, green: 226/255, blue: 46/255, alpha: 1)
